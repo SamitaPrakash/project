@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayflow &mdash; Pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0c0c10; color: #e8e8e8; font-family: 'DM Sans', sans-serif; font-weight: 300; min-height: 100vh; padding: 80px 24px; overflow-x: hidden; }
+.page { max-width: 700px; margin: 0 auto; }
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.fade { opacity: 0; animation: rise 0.7s ease forwards; }
+.d1{animation-delay:0.1s}.d2{animation-delay:0.2s}.d3{animation-delay:0.3s}.d4{animation-delay:0.4s}.d5{animation-delay:0.5s}.d6{animation-delay:0.6s}.d7{animation-delay:0.7s}.d8{animation-delay:0.8s}
+.eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 24px; }
+.headline { font-family: 'Shippori Mincho', serif; font-size: clamp(40px, 8vw, 68px); line-height: 1.05; letter-spacing: -0.02em; color: rgba(255,255,255,0.92); margin-bottom: 28px; }
+.headline em { font-style: italic; color: rgba(255,255,255,0.4); }
+.subhead { font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.45); max-width: 520px; margin-bottom: 64px; }
+.rule { width: 100%; border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 56px 0; }
+.section-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 28px; }
+.problem-statement { font-family: 'Shippori Mincho', serif; font-size: clamp(22px, 4vw, 32px); line-height: 1.45; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+.body-text { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.4); max-width: 540px; }
+.insight { margin: 40px 0; padding: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-left: 2px solid rgba(255,255,255,0.25); border-radius: 4px; }
+.insight-text { font-family: 'Shippori Mincho', serif; font-size: 20px; line-height: 1.5; color: rgba(255,255,255,0.82); }
+.steps { display: flex; flex-direction: column; }
+.step { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.step:last-child { border-bottom: none; }
+.step-num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; min-width: 28px; padding-top: 3px; }
+.step-title { font-size: 15px; color: rgba(255,255,255,0.8); font-weight: 400; margin-bottom: 4px; }
+.step-desc { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.6; }
+.mockup-wrap { display: flex; justify-content: center; margin: 48px 0; }
+.card-mock { width: 300px; background: rgba(22,22,28,0.9); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 22px; box-shadow: 0 32px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08); position: relative; overflow: hidden; }
+.card-mock::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; background: #FF9500; border-radius: 50%; filter: blur(60px); opacity: 0.12; }
+.card-mock::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px); border-radius: 20px; pointer-events: none; }
+.mock-header { display: flex; justify-content: space-between; margin-bottom: 18px; }
+.mock-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+.mock-id { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: rgba(255,255,255,0.12); }
+.mock-msg { font-family: 'Shippori Mincho', serif; font-size: 17px; color: rgba(255,255,255,0.88); line-height: 1.35; margin-bottom: 8px; }
+.mock-shape { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.mock-pip { width: 5px; height: 5px; border-radius: 50%; background: #FF9500; }
+.mock-shape-txt { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 0.12em; color: rgba(255,255,255,0.2); text-transform: uppercase; }
+.mock-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin-bottom: 12px; }
+.mock-feat { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 11px 13px; margin-bottom: 10px; }
+.mock-feat-label { font-family: 'IBM Plex Mono', monospace; font-size: 7px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 4px; }
+.mock-feat-title { font-size: 12px; color: rgba(255,255,255,0.75); }
+.mock-task { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.04); align-items: center; }
+.mock-task:last-child { border-bottom: none; }
+.mock-time { font-family: 'IBM Plex Mono', monospace; font-size: 8px; color: rgba(255,255,255,0.18); min-width: 32px; }
+.mock-task-name { font-size: 11px; color: rgba(255,255,255,0.45); flex: 1; }
+.mock-check { width: 10px; height: 10px; border: 1px solid rgba(255,255,255,0.12); border-radius: 2px; }
+.mock-quote { font-family: 'IBM Plex Mono', monospace; font-size: 7px; color: rgba(255,255,255,0.12); letter-spacing: 0.07em; text-transform: uppercase; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); line-height: 1.8; }
+.widget-wrap { display: flex; gap: 14px; margin: 32px 0; flex-wrap: wrap; }
+.widget { flex: 1; min-width: 140px; background: rgba(22,22,28,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 16px; position: relative; overflow: hidden; }
+.widget::before { content: ''; position: absolute; top: -20px; right: -20px; width: 80px; height: 80px; border-radius: 50%; filter: blur(30px); opacity: 0.2; }
+.widget.w-good::before { background: #34C759; }
+.widget.w-anxious::before { background: #FF9500; }
+.widget.w-low::before { background: #007AFF; }
+.widget-label { font-family: 'IBM Plex Mono', monospace; font-size: 7px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-bottom: 8px; }
+.widget-msg { font-family: 'Shippori Mincho', serif; font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.4; margin-bottom: 10px; }
+.widget-shape { display: flex; align-items: center; gap: 6px; }
+.widget-pip { width: 4px; height: 4px; border-radius: 50%; }
+.widget-shape-txt { font-family: 'IBM Plex Mono', monospace; font-size: 7px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; }
+.moods { display: flex; flex-direction: column; }
+.mood-item { display: flex; align-items: baseline; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; }
+.mood-item:last-child { border-bottom: none; }
+.mood-pip { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.mood-name { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); min-width: 150px; text-transform: uppercase; }
+.mood-response { font-size: 13px; color: rgba(255,255,255,0.3); line-height: 1.5; flex: 1; min-width: 200px; }
+.influences { display: flex; gap: 10px; flex-wrap: wrap; margin: 24px 0; }
+.influence { padding: 9px 14px; border: 1px solid rgba(255,255,255,0.07); border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.28); letter-spacing: 0.06em; }
+.diffs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0; }
+.diff { padding: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; }
+.diff-title { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; margin-bottom: 6px; }
+.diff-desc { font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.6; }
+.cta-block { text-align: center; padding: 60px 0 20px; }
+.cta-headline { font-family: 'Shippori Mincho', serif; font-size: clamp(28px, 5vw, 44px); color: rgba(255,255,255,0.85); line-height: 1.2; margin-bottom: 16px; }
+.cta-sub { font-size: 14px; color: rgba(255,255,255,0.3); margin-bottom: 36px; }
+.cta-button { display: inline-block; padding: 14px 32px; background: rgba(255,255,255,0.9); color: #0c0c10; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; }
+.footer-quote { font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.1); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding-top: 48px; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <p class="eyebrow fade d1">Product Concept &mdash; 2026</p>
+
+  <h1 class="headline fade d2">Your day,<br><em>shaped around</em><br>how you feel.</h1>
+
+  <p class="subhead fade d3">A daily planner that asks how you're doing first &mdash; and builds your entire day around the answer. Not a productivity tool. A personal one.</p>
+
+  <hr class="rule fade d4">
+
+  <p class="section-label fade d4">01 &mdash; The Problem</p>
+  <p class="problem-statement fade d5">Every productivity app assumes you wake up the same way every day.</p>
+  <p class="body-text fade d5">Calendar apps show you a full day regardless of how you feel. Task managers don't know you're exhausted. AI assistants optimize for output, not for the person. Nobody treats emotional state as a first-class input.</p>
+
+  <div class="insight fade d5">
+    <p class="insight-text">"The real reason people don't follow their plans isn't laziness &mdash; it's that the plan didn't know how they were feeling when they woke up."</p>
+  </div>
+
+  <hr class="rule fade d5">
+
+  <p class="section-label fade d5">02 &mdash; The Idea</p>
+  <p class="problem-statement fade d5">A card that appears every morning. You tell it how you feel. It tells you what today looks like.</p>
+  <p class="body-text fade d5" style="margin-bottom:36px;">Inspired by the Hobonichi Techo &mdash; the Japanese planner beloved for its simplicity, grid paper texture, and tiny daily quote at the bottom of every page. The same feeling, made intelligent. A dark glassy card, like a concert ticket, that flips to reveal your plan. Then lives on your home screen as a widget all day.</p>
+
+  <div class="steps fade d6">
+    <div class="step">
+      <span class="step-num">01</span>
+      <div>
+        <div class="step-title">Morning check-in</div>
+        <div class="step-desc">Open the app. A dark glassy card slides up. One question: how are you feeling today? Five options, no typing required. 5 seconds.</div>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <div>
+        <div class="step-title">The card flips</div>
+        <div class="step-desc">Tap your mood. The card flips &mdash; a 3D animation, like turning over a boarding pass &mdash; to show your day, shaped for exactly how you feel right now.</div>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <div>
+        <div class="step-title">Your day, adapted</div>
+        <div class="step-desc">AI pulls from calendar, reminders, and email. Good energy day gets 7 tasks. Anxious day gets 1. Low day gets permission to just exist. Each task shows where it came from.</div>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">04</span>
+      <div>
+        <div class="step-title">Lives as a widget</div>
+        <div class="step-desc">The card stays on your home screen all day. You don't go looking for your plan &mdash; your one focus task is always visible on your wallpaper.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule fade d6">
+
+  <p class="section-label fade d6">03 &mdash; The Card</p>
+
+  <div class="mockup-wrap fade d6">
+    <div class="card-mock">
+      <div class="mock-header">
+        <span class="mock-label">Today's Plan</span>
+        <span class="mock-id">WED &middot; 064</span>
+      </div>
+      <div class="mock-msg">One thing at a time.<br>That's all.</div>
+      <div class="mock-shape">
+        <div class="mock-pip"></div>
+        <span class="mock-shape-txt">Today: One Thing</span>
+      </div>
+      <hr class="mock-divider">
+      <div class="mock-feat">
+        <div class="mock-feat-label">Focus on this</div>
+        <div class="mock-feat-title">Reply to Maya about the apartment viewing</div>
+      </div>
+      <div class="mock-task"><span class="mock-time">10:00</span><span class="mock-task-name">Team standup</span><div class="mock-check"></div></div>
+      <div class="mock-task"><span class="mock-time">14:00</span><span class="mock-task-name">Call with the bank</span><div class="mock-check"></div></div>
+      <div class="mock-quote">You don't have to see the whole staircase,<br>just the first step. &mdash; MLK</div>
+    </div>
+  </div>
+
+  <p class="section-label fade d6" style="margin-top:48px;">04 &mdash; The Widget</p>
+  <p class="body-text fade d6" style="margin-bottom:28px;">Three possible states on your home screen, depending on your check-in.</p>
+
+  <div class="widget-wrap fade d6">
+    <div class="widget w-good">
+      <div class="widget-label">Full energy</div>
+      <div class="widget-msg">You've got good energy. Let's use it.</div>
+      <div class="widget-shape"><div class="widget-pip" style="background:#34C759"></div><span class="widget-shape-txt">Today: Full</span></div>
+    </div>
+    <div class="widget w-anxious">
+      <div class="widget-label">One thing</div>
+      <div class="widget-msg">One thing at a time. That's all.</div>
+      <div class="widget-shape"><div class="widget-pip" style="background:#FF9500"></div><span class="widget-shape-txt">Today: One Thing</span></div>
+    </div>
+    <div class="widget w-low">
+      <div class="widget-label">Just exist</div>
+      <div class="widget-msg">Today just needs to exist. That's okay.</div>
+      <div class="widget-shape"><div class="widget-pip" style="background:#007AFF"></div><span class="widget-shape-txt">Today: Rest</span></div>
+    </div>
+  </div>
+
+  <hr class="rule fade d7">
+
+  <p class="section-label fade d7">05 &mdash; The Five Moods</p>
+  <div class="moods fade d7">
+    <div class="mood-item"><div class="mood-pip" style="background:#34C759"></div><span class="mood-name">Good, let's go</span><span class="mood-response">"You've got good energy. Let's use it." &mdash; Full plan, 7 tasks, stretch goals.</span></div>
+    <div class="mood-item"><div class="mood-pip" style="background:#FFCC00"></div><span class="mood-name">Tired but trying</span><span class="mood-response">"Showing up is enough. Let's keep it simple." &mdash; 3 tasks, rest built in.</span></div>
+    <div class="mood-item"><div class="mood-pip" style="background:#FF9500"></div><span class="mood-name">Anxious</span><span class="mood-response">"One thing at a time. That's all." &mdash; 1 critical task only.</span></div>
+    <div class="mood-item"><div class="mood-pip" style="background:#007AFF"></div><span class="mood-name">Low and heavy</span><span class="mood-response">"Today just needs to exist. That's okay." &mdash; One small win, nothing more.</span></div>
+    <div class="mood-item"><div class="mood-pip" style="background:#AF52DE"></div><span class="mood-name">Scattered</span><span class="mood-response">"Let's give your brain a shape for today." &mdash; Short blocks, frequent transitions.</span></div>
+  </div>
+
+  <hr class="rule fade d7">
+
+  <p class="section-label fade d7">06 &mdash; Design Language</p>
+  <p class="body-text fade d7" style="margin-bottom:24px;">Dark, typographic, tactile. The UI should feel like something you hold, not a dashboard you manage.</p>
+  <div class="influences fade d7">
+    <div class="influence">Hobonichi Techo &mdash; grid, tiny quotes</div>
+    <div class="influence">IBM Plex Mono &mdash; ticket aesthetic</div>
+    <div class="influence">iOS frosted glass &mdash; card over wallpaper</div>
+    <div class="influence">Shippori Mincho &mdash; warmth in the serif</div>
+    <div class="influence">Ambient color blobs &mdash; mood as light</div>
+  </div>
+
+  <hr class="rule fade d8">
+
+  <p class="section-label fade d8">07 &mdash; Why This Is Different</p>
+  <div class="diffs fade d8">
+    <div class="diff">
+      <div class="diff-title">Personal, not professional</div>
+      <div class="diff-desc">Every competitor targets work productivity. This is for your actual life &mdash; rest, errands, the email you've been avoiding.</div>
+    </div>
+    <div class="diff">
+      <div class="diff-title">Emotion first</div>
+      <div class="diff-desc">No other tool asks how you feel before building your day. Emotional state is the primary input, not an afterthought.</div>
+    </div>
+    <div class="diff">
+      <div class="diff-title">Zero setup</div>
+      <div class="diff-desc">One question, get your day. No onboarding, no task entry, no configuration. Works in 10 seconds.</div>
+    </div>
+    <div class="diff">
+      <div class="diff-title">Always there</div>
+      <div class="diff-desc">Lives as a home screen widget. You don't go looking for your plan &mdash; it's already visible every time you pick up your phone.</div>
+    </div>
+  </div>
+
+  <div class="cta-block fade d8">
+    <h2 class="cta-headline">Built for humans,<br>not calendars.</h2>
+    <p class="cta-sub">Looking for a designer to bring this to life.</p>
+    <a href="#" class="cta-button">See the prototype &rarr;</a>
+  </div>
+
+  <p class="footer-quote fade d8">
+    "The secret of getting ahead is getting started." &mdash; Mark Twain<br>
+    Dayflow &middot; 2026 &middot; Product concept by Samita Prakash
+  </p>
+
+</div>
+</body>
+</html>
